@@ -474,8 +474,10 @@ export function useFieldValue<TValue>(
     return ref(unref(initialValue)) as WritableRef<TValue>;
   }
 
+  // Comment out this line to avoid modifying the initial array.
+  // But initialValue of the field will not work.
   // set initial value
-  form.stageInitialValue(unref(path), unref(initialValue));
+  // form.stageInitialValue(unref(path), unref(initialValue));
   // otherwise use a computed setter that triggers the `setFieldValue`
   const value = computed<TValue>({
     get() {
